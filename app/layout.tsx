@@ -60,8 +60,8 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         </nav>
 
         <div className={cn(
-          'flex flex-col px-6 pb-6 pt-24',
-          'mx-auto max-w-7xl min-h-svh',
+          'flex flex-col px-6 pb-6 pt-18',
+          'mx-auto max-w-5xl min-h-svh',
         )}>
           { children }
         </div>
