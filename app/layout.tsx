@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
-
 import { ReactNode } from "react";
+
+import { cn } from '@/lib/utils';
 
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { cn } from '@/lib/utils';
 
 import "@/style/app.css";
 
@@ -41,23 +41,28 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         'bg-white dark:bg-zinc-900 dark:text-white',
         'antialiased', roboto.className
       )}>
-        <header>
-          <nav className="flex items-center fixed top-0 inset-x-0 z-10 p-4 dark:bg-zinc-800 justify-between">
-            <Link href="/">
-              <Image
-                alt="MyTube Logo"
-                className="w-50"
-                priority
-                width={512}
-                height={130}
-                src={AppLogo}
-                unoptimized
-              />
-            </Link>
-          </nav>
-        </header>
+        <nav className={cn(
+          'fixed top-0 inset-x-0 z-10 h-18',
+          'flex items-center p-4 justify-between',
+          'dark:bg-zinc-800',
+        )}>
+          <Link href="/" className="h-full">
+            <Image
+              alt="MyTube Logo"
+              className="h-full w-auto"
+              priority
+              width={238}
+              height={64}
+              src={AppLogo}
+              unoptimized
+            />
+          </Link>
+        </nav>
 
-        <div className="mx-auto max-w-7xl min-h-svh flex flex-col px-6 pt-28 pb-6">
+        <div className={cn(
+          'flex flex-col px-6 pb-6 pt-24',
+          'mx-auto max-w-7xl min-h-svh',
+        )}>
           { children }
         </div>
       </body>
