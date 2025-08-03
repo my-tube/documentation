@@ -10,6 +10,7 @@ import { cn } from '@/lib/utils';
 import "@/style/app.css";
 
 import { roboto } from '@/style/fonts';
+import AppLogo from '@/media/app-logo.png';
 
 
 export const metadata: Metadata = {
@@ -32,10 +33,6 @@ interface RootLayoutProps {
   children: ReactNode;
 }
 
-function staticUrl(path:string) {
-  const basePath = process.env.NODE_ENV === 'production' ? '/documentation' : ''
-  return basePath + path;
-}
 
 export default async function RootLayout({ children }: RootLayoutProps) {
   return (
@@ -53,7 +50,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
                 priority
                 width={512}
                 height={130}
-                src={staticUrl('/app-logo.png')}
+                src={AppLogo}
                 unoptimized
               />
             </Link>
