@@ -1,2 +1,2 @@
 # documentation
-Static site with proejct overview and usage guide
+Static site with project overview and usage guide
