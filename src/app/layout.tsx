@@ -7,16 +7,7 @@ import { Providers } from '@/app/providers'
 import { Layout } from '@/components/Layout'
 import { type Section } from '@/components/SectionProvider'
 
-import { cn } from '@/lib/utils';
-
-import Image from 'next/image';
-import Link from 'next/link';
-
 import "@/style/app.css";
-
-import { roboto } from '@/style/fonts';
-import AppLogo from '@/media/app-logo.png';
-
 
 export const metadata: Metadata = {
   description: 'MyTube Documentation',
