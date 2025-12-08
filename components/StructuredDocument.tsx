@@ -1,6 +1,4 @@
 
-
-
 type ProseProps = {
   html: string,
 }

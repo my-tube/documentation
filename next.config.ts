@@ -46,13 +46,13 @@ const withMDX = createMDX({
   options: {
     remarkPlugins: [],
     rehypePlugins: [
-      rehypeSlug,
-      [rehypeAutolinkHeadings, {
+      'rehype-slug',
+      ['rehype-autolink-headings', {
         behavior: 'append',
         content: AUTOLINK_CONTENT,
         test: ['h2', 'h3'], // Only h2 and h3 will be processed
       }],
-      [rehypeExternalLinks, { target: '_blank', rel: ['noopener']}],
+      ['rehype-external-links', { target: '_blank', rel: ['noopener']}],
     ],
   }
 });
