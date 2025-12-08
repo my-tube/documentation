@@ -1,11 +1,10 @@
-import type { MDXComponents } from 'mdx/types';
+import { type MDXComponents } from 'mdx/types'
 
+import * as mdxComponents from '@/components/mdx'
 
-const components: MDXComponents = {
-
-};
-
-
-export function useMDXComponents(): MDXComponents {
-  return components;
+export function useMDXComponents(components: MDXComponents) {
+  return {
+    ...components,
+    ...mdxComponents,
+  }
 }

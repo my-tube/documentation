@@ -1,0 +1,74 @@
+# Prompt:
+Before you start producing any content, I want you to first demonstrate that you fully understand the app and the value it provides. I will now begin to explain what it is.
+
+The app is called MyTube, and it is a self-managed video hosting solution that enables users to upload and publish video content in a variety of ways, depending on the desired level of visibility. I want people to think of it as their own private instance of YouTube.
+
+There are a few key virtues that I'd like them to grasp:
+- Their video content remains their own.  That is, it is not forfeited to whichever social media platform they would otherwise choose to host it on
+- Their videos are not subject to censorship, DMCA, or any form of scrutiny beyond that which is imposed by the various infrastructure tools used to deliver the app (more on that later)
+- In terms of monetary cost, the solution is completely free to set up and use (by virtue of the fact that the various systems that have been composed are individually free to use, within certain generous usage limits)
+
+There is one caveat I'd like to make known (without scaring anyone off): the infrastructure setup is fairly technical and involved. It is not difficult per se, and by following the detailed instructions _to the letter_, they should have no trouble.
+
+Given all of this info as context, ask me some questions to help deepen your understanding of the problem MyTube solves and why someone might wish to use it themselves.
+
+
+# Prompt
+1. The "Scrutiny" Nuance
+The project uses the following infrastructure components:
+- Supabase: provides a data layer to manage users, access control, and video metadata
+- MUX: provides video uploading, encoding, storage, and delivery
+- Vercel: delivers the NextJS web app (uses server components)
+- Github: To deploy an instance of MyTube, the standard workflow is to fork the mytube repository into a person's own github account, then configure vercel to deploy that repo as a NextJS app
+- A domain registrar: each instance of MyTube is hosted on its own domain. The administrator needs to register a domain then configure its DNS to point to the deployment they've set up in vercel
+
+2. The Setup Reality:
+The setup basically consists of (in no particular order):
+- creating an account with Supabase, MUX, Vercel, and Github
+- Forking the MyTube repository
+- Making the github repo accessible by Vercel, then configuring an automatic deployment for it
+- Setting up a bunch of environment variables in the Vercel project configuration
+- Creating a new project in Supabase, then initializing the database (by executing a supplied SQL file in the SQL console)
+- Creating an administrative user within Supabase. (This user will effectively be the "owner" of this MyTube instance)
+- Navigating the supabase admin panel to obtain the environment variables used by the the supabase client (within the nextjs app) to establish a connection
+- Setting up a payment method in the MUX account in order to remove watermarks and gain access to the $20/month credit (which is far more than enough for the typical use case)
+- Setting up a project in MUX, then navigating the admin panel to obtain the environment variables used to establish communication between the nextjs app and MUX
+- Registering a domain and configuring its DNS to point to the deployment they've set up in Vercel
+
+3. The Viewing Experience:
+- Once everything has been configured and the app is up and running, the home page will be blank except for a link to log in.
+- The user will sign in using the credentials of the administrative user they created in Supabase
+- Upon successful authentication, the user will have access to the "My Videos" page, where they can begin uploading videos.
+
+Access control for videos is as follows:
+Private: The video may only be viewed by users who have authenticated on MyTube. Access is restricted to the user who created the video, as well as any users / groups the creator has shared it with.
+Unlisted: The video may be viewed without authentication, but it will _not_ be listed on the MyTube homepage; a viewer would need to have received the link (typically from the video owner, via email or direct message)
+Public: The video may be viewed without authentication, and it will be listed on the MyTube homepage from anyone in the world to see.
+
+4. The "Generous Limits":
+### Github: Free
+
+### Vercel Hobby:
+- Import your repo, deploy in seconds
+- Automatic CI/CD
+- Web Application Firewall
+- Global, automated CDN
+- Fluid compute
+- DDoS Mitigation
+- Traffic & performance insights
+
+### Supabase FREE:
+- Unlimited API requests
+- 50,000 monthly active users
+- 500 MB database size
+- Shared CPU • 500 MB RAM
+- 5 GB egress
+- 5 GB cached egress
+- 1 GB file storage
+- Community support
+
+### MUX Pay as you go (after establishing a payment method):
+- Encoding minutes / month: unlimited
+- Storage minutes / month: 11,000
+- Delivery minutes / month: 100,000
+
